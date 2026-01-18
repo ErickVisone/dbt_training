@@ -1,0 +1,2 @@
+-- I can input a macro here to compose a generic test to apply agains my database.
+-- Then I have to include the tese named generic_test to the properties.yml.

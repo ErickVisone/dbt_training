@@ -29,6 +29,10 @@ clean-targets: # directories to be removed by `dbt clean`
 # files using the `{{ config(...) }}` macro.
 models:
   dbt_wh:
-    # Config indicated by + and applies to all files under models/example/
     bronze:
-      +materialized: table # I can use view to create views
+      +schema: bronze
+      +materialized: table # Aqui, o schema 'bronze' será usado
+
+seeds:
+  dbt_wh:
+    +schema: bronze

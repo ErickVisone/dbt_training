@@ -1,0 +1,29 @@
+version: 2
+
+models:
+  - name: customer
+    columns:
+      - name: customer_id
+        description: "Unique id for the customer"
+        data_tests:
+          - unique
+          - not_null
+
+      - name: children
+        description: "Number of children that the client currently have"
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: [1, 2, 3]
+              config:
+                severity: warn # Definindo a severidade do teste como "warn" (aviso)
+          - not_null
+
+    config:
+      materialized: table
+      schema: bronze
+
+  - name: purchase
+    config:
+      materialized: view
+      schema: bronze
