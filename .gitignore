@@ -1,2 +1,3 @@
 .venv
 dbt_wh/profiles.yml
+dbt_wh/.user.yml

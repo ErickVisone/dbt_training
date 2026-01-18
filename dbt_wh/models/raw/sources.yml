@@ -1,0 +1,10 @@
+version: 2
+
+sources:
+  - name: raw
+    database: dbt_training
+    schema: raw
+    tables:
+      - name: customer
+      - name: product
+      - name: purchase
