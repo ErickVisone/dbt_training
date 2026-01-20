@@ -1,0 +1,27 @@
+version: 2
+
+models:
+  - name: customer
+    config:
+      materialized: table
+      schema: bronze
+
+  - name: purchase
+    config:
+      materialized: table
+      schema: bronze
+
+  - name: address
+    config:
+      materialized: table
+      schema: bronze
+
+  - name: category
+    config:
+      materialized: table
+      schema: bronze
+
+  - name: product
+    config:
+      materialized: table
+      schema: bronze

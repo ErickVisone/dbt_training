@@ -25,5 +25,9 @@ models:
 
   - name: purchase
     config:
-      materialized: view
+      materialized: table
       schema: bronze
+
+  - name: address
+    config:
+      materialized: table

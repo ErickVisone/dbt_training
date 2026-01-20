@@ -8,3 +8,5 @@ sources:
       - name: customer
       - name: product
       - name: purchase
+      - name: category
+      - name: address
