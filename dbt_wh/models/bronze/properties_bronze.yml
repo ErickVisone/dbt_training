@@ -2,6 +2,85 @@ version: 2
 
 models:
   - name: customer
+    description: "Tabela de clientes"
+    columns:
+      - name: customer_id
+        description: "Unique customer identifier"
+        tests:
+          - unique:
+              config:
+                severity: warn
+          - not_null:
+              config:
+                severity: warn
+          - relationships:
+              to: ref('purchase')
+              field: customer_id
+
+      - name: first_name
+        description: "Customer's first name"
+        tests:
+          - not_null:
+              config:
+                severity: warn
+
+      - name: last_name
+        description: "Customer's last name"
+        tests:
+          - not_null:
+              config:
+                severity: warn
+
+      - name: civil_status
+        description: "Customer civil status, only some values are accepted"
+        tests:
+          - not_null:
+              config:
+                severity: warn
+          - accepted_values:
+              values:
+                [
+                  "Stable Union",
+                  "Married",
+                  "Single",
+                  "Widowed",
+                  "Divorced",
+                  "Prefer not to say",
+                ]
+              config:
+                severity: warn
+
+      - name: gender
+        description: "Customer's gender"
+        tests:
+          - not_null:
+              config:
+                severity: warn
+          - accepted_values:
+              values: ["M", "F", "Prefer not say"]
+              config:
+                severity: warn
+
+      - name: email
+        description: "Customer's main email"
+
+      - name: phone
+        description: "Customer's main phone"
+
+      - name: date_of_birth
+        description: "Customer date of birth"
+
+      - name: account_status
+        description: "Validity of the account"
+        tests:
+          - not_null:
+              config:
+                severity: warn
+          - accepted_values:
+              values: ["Active", "Suspended", "Inactive"]
+              config:
+                severity: warn
+
     config:
       materialized: table
       schema: bronze
